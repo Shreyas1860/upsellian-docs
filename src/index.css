@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 107 53% 96%;
+    --foreground: 215 50% 23%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 50% 23%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 50% 23%;
+
+    --primary: 215 50% 23%;
+    --primary-foreground: 107 53% 96%;
+
+    --secondary: 203 38% 44%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 107 30% 92%;
+    --muted-foreground: 215 30% 40%;
+
+    --accent: 182 43% 76%;
+    --accent-foreground: 215 50% 23%;
+
+    --destructive: 356 78% 56%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 203 30% 85%;
+    --input: 203 30% 85%;
+    --ring: 203 38% 44%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(215 50% 23%) 0%, hsl(203 38% 44%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(203 38% 44%) 0%, hsl(182 43% 76%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(107 53% 96%) 0%, hsl(107 40% 93%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(107 53% 98%) 100%);
+    
+    --shadow-soft: 0 4px 20px -4px hsl(215 50% 23% / 0.08);
+    --shadow-medium: 0 8px 30px -6px hsl(215 50% 23% / 0.12);
+    --shadow-glow: 0 0 40px hsl(203 38% 44% / 0.25);
+    --shadow-card: 0 1px 3px hsl(215 50% 23% / 0.04), 0 6px 16px hsl(215 50% 23% / 0.06);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 50% 10%;
+    --foreground: 107 53% 96%;
+
+    --card: 215 50% 14%;
+    --card-foreground: 107 53% 96%;
+
+    --popover: 215 50% 14%;
+    --popover-foreground: 107 53% 96%;
+
+    --primary: 107 53% 96%;
+    --primary-foreground: 215 50% 23%;
+
+    --secondary: 203 38% 44%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 40% 18%;
+    --muted-foreground: 182 30% 70%;
+
+    --accent: 182 43% 76%;
+    --accent-foreground: 215 50% 23%;
+
+    --destructive: 356 78% 56%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 40% 20%;
+    --input: 215 40% 20%;
+    --ring: 203 38% 44%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .container-narrow {
+    @apply max-w-5xl mx-auto;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .btn-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
